@@ -1,0 +1,276 @@
+{
+  "info": {
+    "_postman_id": "0917daa3-de37-4d14-91e4-82d4dcc7e81f",
+    "name": "MARKS & SHARMA Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "32378248"
+  },
+  "item": [
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "create new user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"first\": \"Mohammed\",\r\n\"last\": \"Marks\",\r\n\"email\": \"mm@gmail.com\",\r\n\"password\": \"sdsddssdsdsd\"\r\n\r\n\r\n\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8081/user/signup",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["user", "signup"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logging in as a current user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"email\": \"mm@gmail.com\",\r\n\"password\": \"sdsddssdsdsd\"\r\n\r\n\r\n\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8081/user/login",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["user", "login"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "rooms",
+      "item": [
+        {
+          "name": "create new room",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDUzOTY2NTFjZmRkOTAyMmFmMjUzOSIsImlhdCI6MTcwODQ3NjI5MiwiZXhwIjoxNzA4NTYyNjkyfQ.BosHR8BIIzeaMlQqv_WZkfixuR2b3SNh1KKucF2sGcQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"History\",\r\n    \"description\": \"American, German2\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8081/room/create/65d5396651cfdd9022af2539",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["room", "create", "65d5396651cfdd9022af2539"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "show all rooms and users in them",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8081/room/",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["room", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "messages",
+      "item": [
+        {
+          "name": "get all messages in room",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Science Room\",\r\n    \"description\": \"Chemistry, Biology\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8081/message/all/65d539e451cfdd9022af253c",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["message", "all", "65d539e451cfdd9022af253c"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create new message in a room",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDUzOTY2NTFjZmRkOTAyMmFmMjUzOSIsImlhdCI6MTcwODQ3NzU4NiwiZXhwIjoxNzA4NTYzOTg2fQ.crwt76wVn81kgTTcGhKPM7LLkNhhfgI33zHq9-IXfIc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"text\": \"fgfgfgfgfgfgfgf\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8081/message/create/65d5396651cfdd9022af2539/65d539e451cfdd9022af253c",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": [
+                "message",
+                "create",
+                "65d5396651cfdd9022af2539",
+                "65d539e451cfdd9022af253c"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update a message in a room",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"text\": \"595959595959\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8081/message/update/65d558b31c763e5b43d1bb81",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["message", "update", "65d558b31c763e5b43d1bb81"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete a message",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8081/message/delete/65d54cc0e009dd5c3b83a05e",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["message", "delete", "65d54cc0e009dd5c3b83a05e"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDUzOTY2NTFjZmRkOTAyMmFmMjUzOSIsImlhdCI6MTcwODQ3ODEyMywiZXhwIjoxNzA4NTY0NTIzfQ.h1RepyMHicSKz1EWIl-3jOxxZ_9RorfARaeMUgsj6HA",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}
